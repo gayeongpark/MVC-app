@@ -34,8 +34,14 @@ const model = {
   name: config.initialName,
   //`setName` updates the name and logs
   setName(name) {
-    this.name = name;
-    logger.log(`Name updated: ${name}`);
+    if (name === "") {
+      // Log an error if the name is an empty string
+      logger.log("Name cannot be empty", "error");
+    } else {
+      this.name = name;
+      logger.log(`Name updated -> ${name}`, "info");
+      // Log the name update at info level
+    }
   },
   // `getName` is to return the current name.
   getName() {
@@ -71,6 +77,8 @@ class View {
 }
 
 // Controller
+// It is an intermediary between the model and the view.
+// It initializes the application state and updates the view to reflect the current model state when the application start.
 class Controller {
   constructor(model, view, logger) {
     this.model = model;
@@ -84,7 +92,7 @@ class Controller {
 }
 
 // Manually injected the dependencies
-const logger = new Logger(config.logLevel);
+const logger = new Logger("info");
 const view = new View(document.getElementById("app"), model);
 const controller = new Controller(model, view, logger);
 
