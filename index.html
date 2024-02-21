@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVC Hello app homework for Concept of programming</title>
+    <style>
+      h1 {
+        margin: 20px;
+      }
+      #name-form {
+        display: flex;
+        align-items: center;
+        margin: 20px;
+      }
+
+      #name-input,
+      #greet-button {
+        padding: 10px;
+        margin: 5px;
+      }
+      #greeting {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>MVC with dependency injection homework</h1>
+      <form id="name-form">
+        <label for="name-input">Your Name:</label>
+        <input
+          type="text"
+          id="name-input"
+          name="name"
+          placeholder="Enter your name"
+        />
+        <button id="greet-button" type="button">OK</button>
+      </form>
+      <p id="greeting"></p>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
